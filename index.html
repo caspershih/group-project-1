@@ -5,12 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Slabo+27px" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <title>Figgit Search</title>
 </head>
 
 <body>
+    <div class="container">
+        <header></header>
+        <div class="logoDiv"><img src="assets/images/figgit_logo-01.png" alt="logo" class="responsive"></div>
+            <form id="searchForm">
+            <label form="headline-input">Enter headline here:</label><br>
+            <input type="text" id="headline-input" placeholder="Required">
+            <input id="headline" type="submit" value="Search">
+            </form>
+        <div id="resultsView"></div>  
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
 
 </html>

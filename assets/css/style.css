@@ -1,0 +1,78 @@
+/*font-family: 'Slabo 27px', serif;
+font-family: 'Noto Serif', serif;*/
+
+body {
+    position: relative;
+    padding: 60px;
+    margin: 0;
+    background-image: url("../images/newsprintBG.png");
+    background-size: cover;
+    background-repeat: repeat-y;
+    font-family: 'Slabo 27px', serif;
+    font-size: 12pt;
+}
+
+.container{
+    position: relative;
+    background-color: white;
+    width: 90%;
+    min-height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 6px 12px #7d7d7d;
+}
+
+.responsive{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+}
+
+header{
+    text-align: center;
+    line-height: 140px;
+    height: 140px;
+}
+
+.logoDiv{
+    width: 100%;
+    text-align: center;
+}
+
+#searchForm {
+    text-align: left;
+    max-width: 450px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 150%;
+    padding-left: 40px;
+}
+
+#headline-input {
+    width: 100%;
+    max-width: 340px;
+    padding: 5px;
+    margin: 0px 5px 5px 0px;
+}
+
+#headline {
+    background-color: red;
+    padding: 3px 14px 3px 15px;
+    border-radius: 6px;
+    border-color: rgb(177, 1, 1);
+    font-family: 'Slabo 27px', serif;
+    font-size: 1em;
+    letter-spacing: .7px;
+    color: white;
+    cursor: url("../images/cursor.png"), auto;
+}
+
+#headline:hover{
+    background-color: rgb(177, 1, 1);
+}
+
+#resultsView{
+    line-height: 150%;
+    width: 80%;
+}
