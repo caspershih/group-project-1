@@ -25,14 +25,18 @@ function getData() {
             console.log(response);
 
 // displaying the search result in a div
+            var result = response.data;
+            for (i = 0; i < result.length; i++) {
+            
+            var newArticles = $("<div>");
 
-            var newArticles = $("<div id=\"articlesView\">")
-
-            $(newArticles).append("<div>" + response.response.docs[i].headline.main + "</div>");
-            $(newArticles).append("<div>" + response.response.docs[i].snippet + "</div>");
-            $(newArticles).append("<div>" + "<a href='" + response.response.docs[i].web_url + "'>" + "Go to Article </a>" + "</div>");
+            $(newArticles).append("<div>" + result[i].title + "</div>");
+            $(newArticles).append("<div>" + result[i].description + "</div>");
+            $(newArticles).append("<div>" + result.docs[i] + "</div>");
         
-            $("#articlesView").append(newArticles);
+            $("#resultsView").append(newArticles);
+
+            };
 
           })
 
