@@ -18,12 +18,18 @@ body {
     height: auto;
     min-height: 650px;
     background-color: white;
+<<<<<<< HEAD
+    width: 90%;
+    min-height: 550px;
+    min-width: 480px; 
+=======
     box-shadow: 0px 6px 12px #7d7d7d;
 }
 
 .container{
     padding: 60px;
     width: 100%;
+>>>>>>> master
     margin-left: auto;
     margin-right: auto;
 }
@@ -54,6 +60,36 @@ body {
     line-height: 200%;
 }
 
+<<<<<<< HEAD
+#headlineInput {
+    display: block;
+    height: ;
+    width: 100%;
+    max-width: 340px;
+    padding: 5px;
+    margin: 0px 5px 5px 0px;
+
+}
+
+#headlineDate {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    padding: 5px;
+    margin: 0px 5px 5px 0px;
+}
+
+#headlineBtn {
+    background-color: red;
+    padding: 3px 14px 3px 15px;
+    border-radius: 6px;
+    border-color: rgb(177, 1, 1);
+    font-family: 'Slabo 27px', serif;
+    font-size: 1em;
+    letter-spacing: .7px;
+    color: white;
+    /* cursor: url("../images/cursor.png"), auto; */
+=======
 #headline-input {
     width: 70%;
     padding: 10px;
@@ -72,9 +108,10 @@ body {
     box-shadow: 0px 3px 6px #c1c1c1;
     color: #727272;
     cursor: url("../images/cursor.png"), auto;
+>>>>>>> master
 }
 
-#headline:hover{
+#headlineBtn:hover{
     background-color: rgb(177, 1, 1);
     color: white;
 }
