@@ -21,6 +21,16 @@ body {
     box-shadow: 0px 6px 12px #7d7d7d;
 }
 
+.resultsContainer{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: white;
+    box-shadow: 0px 6px 12px #7d7d7d;
+}
+
 .container{
     padding: 60px;
     width: 100%;
@@ -86,14 +96,19 @@ body {
     cursor: url("../images/cursor.png"), auto;
 }
 
-#headline:hover{
+#headlineBtn:hover{
     background-color: rgb(177, 1, 1);
     color: white;
 }
 
 #resultsView{
     line-height: 175%;
-    width: 80%;
-    border: #c1c1c1 1px solid;
     padding: 30px;
+    border-radius: 6px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: #c1c1c1 1px solid;
 }
