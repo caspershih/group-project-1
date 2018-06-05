@@ -17,6 +17,7 @@ body {
     background-color: white;
     width: 90%;
     min-height: 550px;
+    min-width: 480px; 
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0px 6px 12px #7d7d7d;
@@ -49,14 +50,25 @@ header{
     padding-left: 40px;
 }
 
-#headline-input {
+#headlineInput {
+    display: block;
+    height: ;
+    width: 100%;
+    max-width: 340px;
+    padding: 5px;
+    margin: 0px 5px 5px 0px;
+
+}
+
+#headlineDate {
+    display: block;
     width: 100%;
     max-width: 340px;
     padding: 5px;
     margin: 0px 5px 5px 0px;
 }
 
-#headline {
+#headlineBtn {
     background-color: red;
     padding: 3px 14px 3px 15px;
     border-radius: 6px;
@@ -65,10 +77,10 @@ header{
     font-size: 1em;
     letter-spacing: .7px;
     color: white;
-    cursor: url("../images/cursor.png"), auto;
+    /* cursor: url("../images/cursor.png"), auto; */
 }
 
-#headline:hover{
+#headlineBtn:hover{
     background-color: rgb(177, 1, 1);
 }
 
