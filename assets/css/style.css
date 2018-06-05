@@ -1,5 +1,8 @@
 /*font-family: 'Slabo 27px', serif;
 font-family: 'Noto Serif', serif;*/
+* {
+    box-sizing: border-box;
+}
 
 body {
     padding: 80px;
@@ -58,40 +61,56 @@ body {
 
 #searchForm {
     text-align: center;
-    width: 75%;
+    width: 100%;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     line-height: 175%;
 }
 
+.formRow {
+    display: flex;
+    align-items: stretch;
+    font-size: 11pt;
+}
+
+.formColumn {
+    text-align: left;
+}
+
 #headlineInput {
     width: 100%;
-    max-width: 420px;
-    padding: 10px;
+    padding: 12px 5px 12px 5px;
+    font-family: 'Slabo 27px', serif;
+    font-size: 11pt;
     box-shadow: 0px 3px 6px #c1c1c1;
     border: #c1c1c1 1px solid;
     border-radius: 3px 3px 3px 3px;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
 }
 
 #headlineDate {
     width: 100%;
-    max-width: 420px;
-    padding: 10px;
+    padding: 10px 5px 10px 5px;
+    -webkit-text-fill-color: #858585;
+    font-family: 'Slabo 27px', serif;
+    font-size: 11pt;
     box-shadow: 0px 3px 6px #c1c1c1;
     border: #c1c1c1 1px solid;
     border-radius: 3px 3px 3px 3px;
-    margin-bottom: 10px;
+    margin-left: 3px;
+    margin-bottom: 3px;
 }
 
 #headlineBtn {
+    margin-left: 6px;
     background-color: red;
-    padding: 3px 14px 3px 15px;
-    border-radius: 6px;
+    padding: 12px 25px 12px 25px;
+    border-radius: 3px;
     border-color: rgb(177, 1, 1);
     font-family: 'Slabo 27px', serif;
-    font-size: 1em;
-    letter-spacing: .7px;
+    box-shadow: 0px 3px 6px #c1c1c1;
+    font-size: 11pt;
     color: white;
     cursor: url("../images/cursor.png"), auto;
 }
@@ -101,14 +120,54 @@ body {
     color: white;
 }
 
-#resultsView{
-    line-height: 175%;
-    padding: 30px;
+#resultsSection{
     border-radius: 6px;
-    width: 90%;
+    width: 93%;
+    max-width: 1200px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    border: #c1c1c1 1px solid;
+    border: #858585 1px solid;
+}
+
+h3 {
+    line-height: 200%;
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 0px 30px 0px 30px;
+    border-radius: 4px 4px 0px 0px;
+}
+
+#resultsView{
+    padding: 10px 30px 10px 30px;
+    line-height: 175%;
+}
+
+@media screen and (max-width: 640px){
+    body {
+        padding: 30px 0px 0px 0px;
+    }
+
+    .container{
+        padding: 10px;
+    }
+
+    .formRow {
+        display: block;
+    }
+
+    .formColumn {
+        float: left;
+        font-size: 14pt;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    #headlineBtn {
+        margin-top: -5px;
+    }
 }
