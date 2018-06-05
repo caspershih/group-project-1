@@ -24,7 +24,15 @@ function getData() {
           .then(function(response){
             console.log(response);
 
+// displaying the search result in a div
 
+            var newArticles = $("<div id=\"articlesView\">")
+
+            $(newArticles).append("<div>" + response.response.docs[i].headline.main + "</div>");
+            $(newArticles).append("<div>" + response.response.docs[i].snippet + "</div>");
+            $(newArticles).append("<div>" + "<a href='" + response.response.docs[i].web_url + "'>" + "Go to Article </a>" + "</div>");
+        
+            $("#articlesView").append(newArticles);
 
           })
 
@@ -34,4 +42,3 @@ function getData() {
     })
 };
     getData();
-   
