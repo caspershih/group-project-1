@@ -24,10 +24,9 @@ body {
 .resultsContainer{
     margin-top: 30px;
     display: flex;
-    lign-items: center;
+    align-items: center;
     justify-content: center;
     height: auto;
-    min-height: 650px;
     background-color: white;
     box-shadow: 0px 6px 12px #7d7d7d;
 }
