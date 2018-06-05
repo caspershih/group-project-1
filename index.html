@@ -12,17 +12,18 @@
 </head>
 
 <body>
+    <div class="flex-container">
     <div class="container">
-        <header></header>
         <div class="logoDiv"><img src="assets/images/figgit_logo-01.png" alt="logo" class="responsive"></div>
             <form id="searchForm">
             <label form="headline-input">Enter headline here:</label><br>
-            <input type="text" id="headlineInput" placeholder="Required"> 
-            <label form="headline-input">Date:</label><br>
-            <input type="date" id="headlineDate" placeholder="Date">
+            <input type="text" id="headlineInput" placeholder="Headline Required"><br>
+            <label form="headline-input">Date of article:</label><br>
+            <input type="date" id="headlineDate" placeholder="Date Required"><br>
             <input id="headlineBtn" type="submit" value="Search">
             </form>
         <div id="resultsView"></div>  
+    </div>
     </div>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
