@@ -25,7 +25,7 @@ body {
 }
 
 .resultsContainer{
-    margin-top: 30px;
+    margin-top: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,28 +124,71 @@ label{
 }
 
 #resultsSection{
-    border-radius: 3px;
+    display: none;
+    border-radius: 6px;
     width: 93%;
     max-width: 900px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 30px;
-    border: #c1c1c1 1px solid;
 }
 
-h3 {
+/*h3 {
     line-height: 200%;
     width: 100%;
-    padding: 2px 30px 0px 30px;
+    background-color: red;
+    color: white;
+    padding: 0px 30px 0px 30px;
     border-radius: 2px 2px 0px 0px;
-    border-bottom: #c1c1c1 1px solid;
-}
+}*/
 
 #resultsView{
-    padding: 10px 30px 10px 30px;
-    line-height: 175%;
+line-height: 175%;
+}
+
+.byDiv {
+    display: inline-block;
+    margin: 0px 5px 5px 0px;
+}
+
+.mySource {
+    font-weight: bold;
+    font-size: 24px;
+    color: red;
+}
+
+.myTitle {
+    background-color: whitesmoke;
+    margin: 10px 0px;
+    border-radius: 4px 0px;
+    padding: 0px 10px;
+    box-shadow: 0px 6px 12px #7d7d7d;
+}
+
+.myTitle a {
+    display: block;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+.myTitle:hover {
+    background-color: silver;
+}
+
+.resultsHeader {
+    display: none;
+    font-size: 18pt;
+    margin-top: 30px;
+    line-height: 200%;
+    width: 100%;
+    background-color: red;
+    color: white;
+    padding: 10px 30px 7px 30px;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0px 6px 12px #7d7d7d;
 }
 
 @media screen and (max-width: 640px){
