@@ -1,9 +1,17 @@
+//on.document function
+$(document).ready(function() {
+    //To hide results container on page load
+    $(".resultsContainer").hide();
+
 function getData() {
     $("#headlineBtn").on("click", function() { // START ON CLICK
 
         event.preventDefault();
         $("#headlineInput").empty();
         $("#headlineDate").empty();
+    //To show results container on click    
+        $(".resultsContainer").show();
+       
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
 
@@ -27,7 +35,8 @@ function getData() {
             console.log("length: "+response.articles.length);
 
             for (i = 0; i < response.articles.length; i++) {
-                var artTitle = $("<a>").text(response.articles[i].title);
+                var artTitle = $("<a>").text("Headline: " + response.articles[i].title);
+                //Can we add a target='_blank' attr here? So link opens in new window.
                 artTitle.attr("href", response.articles[i].url);
                 // var artUrl = response.articles[i].url;
                 var artAuthor = response.articles[i].author;
@@ -47,7 +56,7 @@ function getData() {
                 authDiv.addClass("byDiv");
 
                 var sourceDiv = $("<div>");
-                sourceDiv.addClass("byDiv");
+                sourceDiv.addClass("mySource");
 
                 
                 // define byBlock
@@ -56,7 +65,7 @@ function getData() {
                 var textSource = sourceDiv.append("Source: "+artSource);
                 var textDate = dateDiv.append("Date: "+artDate);
 
-                var myResults = titleDiv.append(artTitle).append(textDate).append(textAuthor).append(textSource);
+                var myResults = titleDiv.append(textSource).append(artTitle).append(textDate).append(textAuthor);
 
                 $("#resultsView").append(myResults); // display results to html
 
@@ -72,4 +81,6 @@ function getData() {
     })
 };
     getData();
-   
+
+//end brackets for on.document function
+});
