@@ -1,9 +1,17 @@
+//on.document function
+$(document).ready(function() {
+    //To hide results container on page load
+    $(".resultsContainer").hide();
+
 function getData() {
     $("#headlineBtn").on("click", function() { // START ON CLICK
 
         event.preventDefault();
         $("#headlineInput").empty();
         $("#headlineDate").empty();
+    //To show results container on click    
+        $(".resultsContainer").show();
+       
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
 
@@ -34,4 +42,6 @@ function getData() {
     })
 };
     getData();
-   
+
+//end brackets for on.document function
+});
