@@ -25,7 +25,8 @@ body {
 }
 
 .resultsContainer{
-    margin-top: 30px;
+    margin-top: 10px;
+    /* margin-top: 30px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,15 +122,17 @@ body {
 }
 
 #resultsSection{
+    display: none;
     border-radius: 6px;
     width: 93%;
     max-width: 1200px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    margin-top: 10px;
     margin-bottom: 30px;
-    border: #858585 1px solid;
+    /* border: #858585 1px solid; */
 }
 
 h3 {
@@ -138,12 +141,44 @@ h3 {
     background-color: red;
     color: white;
     padding: 0px 30px 0px 30px;
-    border-radius: 4px 4px 0px 0px;
+    /* border-radius: 4px 4px 0px 0px; */
+    border-radius: 4px 4px 4px 4px;
 }
 
 #resultsView{
-    padding: 10px 30px 10px 30px;
+    /* padding: 10px 0px 10px 0px; */
     line-height: 175%;
+}
+
+.byDiv {
+    display: inline-block;
+    margin: 0px 5px;
+}
+
+.myTitle {
+    background-color: whitesmoke;
+    margin: 10px 0px;
+    border-radius: 4px 0px;
+    padding: 0px 10px;
+    box-shadow: 0px 6px 12px #7d7d7d;
+}
+
+.myTitle a {
+    display: block;
+    font-size: 24px;
+}
+
+.myTitle:hover {
+    background-color: silver;
+}
+
+.resultsHeader {
+    display: none;
+    margin-top: 30px;
+    box-shadow: 0px 6px 12px #7d7d7d;
+    border-radius: 4px 0px;
+
+
 }
 
 @media screen and (max-width: 640px){
