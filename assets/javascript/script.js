@@ -35,10 +35,10 @@ function getData() {
             console.log("length: "+response.articles.length);
 
             for (i = 0; i < response.articles.length; i++) {
-                var artTitle = $("<a>").text("Headline: " + response.articles[i].title);
-                //Can we add a target='_blank' attr here? So link opens in new window.
-                artTitle.attr("href", response.articles[i].url);
-                // var artUrl = response.articles[i].url;
+                var artTitle = $("<h2>").text("Headline: " + response.articles[i].title);
+                // artTitle.attr("target", "_blank");
+                // artTitle.attr("href", response.articles[i].url);
+                var artUrl = response.articles[i].url;
                 var artAuthor = response.articles[i].author;
                 var artSource = response.articles[i].source.name;
                 var artDate = response.articles[i].publishedAt;
@@ -46,8 +46,20 @@ function getData() {
                
                // create separate Divs for byBlock
 
-                var titleDiv = $("<div>");
-                titleDiv.addClass("myTitle");
+
+
+                // var titleDiv = $("<div>");
+                // titleDiv.addClass("myTitle");
+                // titleDiv.attr("onClick", "location.href='" + response.articles[i].url+"'");
+                // titleDiv.attr("target", "_blank");
+
+                var divA = $("<a>");
+                divA.attr("href", response.articles[i].url);
+                divA.attr("target", "_blank");
+                divA.addClass("myTitle");
+
+                // var tDiv = divA.append(titleDiv);
+
 
                 var dateDiv = $("<div>");
                 dateDiv.addClass("byDiv");
@@ -65,7 +77,7 @@ function getData() {
                 var textSource = sourceDiv.append("Source: "+artSource);
                 var textDate = dateDiv.append("Date: "+artDate);
 
-                var myResults = titleDiv.append(textSource).append(artTitle).append(textDate).append(textAuthor);
+                var myResults = divA.append(textSource).append(artTitle).append(textDate).append(textAuthor);
 
                 $("#resultsView").append(myResults); // display results to html
 
