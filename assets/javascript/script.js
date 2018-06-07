@@ -4,6 +4,8 @@ $(document).ready(function() {
 
     $(".resultsContainer").hide();
     $(".resultsHeader").hide();
+    var countryCode;
+
 
     var queryGEO = "http://ip-api.com/json";
 
@@ -15,11 +17,11 @@ $(document).ready(function() {
     .then(function(response) {
         console.log(response)
         var country = response.countryCode;
-        console.log(country);
+        countryCode = country;
+
     })
 function getData() {
     $("#headlineBtn").on("click", function() { // START ON CLICK
-
         event.preventDefault();
         $("#headlineInput").empty();
         $("#headlineDate").empty();
@@ -32,7 +34,7 @@ function getData() {
 
         var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
         var from = $("#headlineDate").val().trim();
-        var sortBy = "popularity";
+        var sortBy = "relevancy";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
         console.log(q);
         console.log(url);
