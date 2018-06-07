@@ -124,7 +124,7 @@ label{
 }
 
 #resultsSection{
-    display: none;
+    display: block;
     border-radius: 6px;
     width: 93%;
     max-width: 900px;
@@ -182,7 +182,7 @@ h2 {
 }
 
 .resultsHeader {
-    display: none;
+    display: block;
     font-size: 18pt;
     margin-top: 30px;
     line-height: 200%;
