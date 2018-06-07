@@ -20,19 +20,17 @@ function getData() {
         $.ajax({
             url: queryURL,
             method: "GET"
-          })
-          .then(function(response){
-            console.log(response);
-
+          }).then(function(response) {
+        
 // displaying the search result in a div
-            var result = response.data;
-            for (i = 0; i < result.length; i++) {
+            
+            for (i = 0; i < 10; i++) {
             
             var newArticles = $("<div>");
 
-            $(newArticles).append("<div>" + result[i].title + "</div>");
-            $(newArticles).append("<div>" + result[i].description + "</div>");
-            $(newArticles).append("<div>" + result.docs[i] + "</div>");
+            $(newArticles).append("<div>" + response.result[i].title + "</div>");
+            $(newArticles).append("<div>" + response.result[i].description + "</div>");
+            $(newArticles).append("<div>" + response.result[i] + "</div>");
         
             $("#resultsView").append(newArticles);
 
