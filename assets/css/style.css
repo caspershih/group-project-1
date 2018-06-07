@@ -118,7 +118,7 @@ label{
     cursor: url("../images/cursor.png"), auto;
 }
 
-#headline:hover{
+#headlineBtn:hover{
     background-color: rgb(177, 1, 1);
     color: white;
 }
