@@ -15,7 +15,7 @@ function getData() {
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
 
-        var sources = "abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
+        var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
         var from = $("#headlineDate").val().trim();
         var sortBy = "popularity";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
@@ -35,12 +35,13 @@ function getData() {
             console.log("length: "+response.articles.length);
 
             for (i = 0; i < response.articles.length; i++) {
-                var artTitle = $("<a>").text("Headline: " + response.articles[i].title);
+                var artTitle = $('<a>').text('Headline: ' + '"' + response.articles[i].title + '"');
                 //Can we add a target='_blank' attr here? So link opens in new window.
                 artTitle.attr("href", response.articles[i].url);
                 // var artUrl = response.articles[i].url;
                 var artAuthor = response.articles[i].author;
                 var artSource = response.articles[i].source.name;
+                //Need to format date
                 var artDate = response.articles[i].publishedAt;
 
                
@@ -61,9 +62,9 @@ function getData() {
                 
                 // define byBlock
 
-                var textAuthor = authDiv.append("Author: "+artAuthor);
-                var textSource = sourceDiv.append("Source: "+artSource);
-                var textDate = dateDiv.append("Date: "+artDate);
+                var textAuthor = authDiv.append("Author: " + artAuthor);
+                var textSource = sourceDiv.append("Source: " + artSource);
+                var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MM/DD/YYYY"));
 
                 var myResults = titleDiv.append(textSource).append(artTitle).append(textDate).append(textAuthor);
 
