@@ -145,7 +145,7 @@ label{
 }*/
 
 #resultsView{
-line-height: 175%;
+line-height: 150%;
 }
 
 .byDiv {
@@ -161,6 +161,7 @@ line-height: 175%;
 
 .myTitle {
     background-color: whitesmoke;
+    color: gray;
     margin: 10px 0px;
     border-radius: 4px 0px;
     padding: 0px 10px;
@@ -169,9 +170,9 @@ line-height: 175%;
 
 .myTitle a {
     display: block;
-    font-size: 24px;
+    font-size: 18px;
     text-decoration: none;
-    color: black;
+    color: gray;
 }
 
 .myTitle:hover {
