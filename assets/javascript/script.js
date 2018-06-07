@@ -1,8 +1,20 @@
 //on.document function
 $(document).ready(function() {
     //To hide results container on page load
-    $(".resultsContainer").hide();
 
+    $(".resultsContainer").hide();
+    var queryGEO = "http://ip-api.com/json";
+
+    $.ajax({
+        url: queryGEO,
+        method: "GET"
+    })
+
+    .then(function(response) {
+        console.log(response)
+        var country = response.countryCode;
+        console.log(country);
+    })
 function getData() {
     $("#headlineBtn").on("click", function() { // START ON CLICK
 
