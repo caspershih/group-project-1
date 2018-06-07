@@ -64,7 +64,7 @@ function getData() {
 
                 var textAuthor = authDiv.append("Author: " + artAuthor);
                 var textSource = sourceDiv.append("Source: " + artSource);
-                var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MM/DD/YYYY"));
+                var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MMMM DD, YYYY"));
 
                 var myResults = titleDiv.append(textSource).append(artTitle).append(textDate).append(textAuthor);
 
