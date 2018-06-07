@@ -1,22 +1,22 @@
 //on.document function
 $(document).ready(function() {
     //To hide results container on page load
+
     $(".resultsContainer").hide();
     $(".resultsHeader").hide();
 
-
-    var geoUrl = "http://ip-api.com/json";
+    var queryGEO = "http://ip-api.com/json";
 
     $.ajax({
-     url: geoUrl,
-     method: "GET"
-    })
-    .then(function(response){
-        console.log("geo: "+response);
-
-
+        url: queryGEO,
+        method: "GET"
     })
 
+    .then(function(response) {
+        console.log(response)
+        var country = response.countryCode;
+        console.log(country);
+    })
 function getData() {
     $("#headlineBtn").on("click", function() { // START ON CLICK
 
@@ -30,7 +30,7 @@ function getData() {
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
 
-        var sources = "abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
+        var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
         var from = $("#headlineDate").val().trim();
         var sortBy = "popularity";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
@@ -54,6 +54,7 @@ function getData() {
                 var artUrl = response.articles[i].url;
                 var artAuthor = response.articles[i].author;
                 var artSource = response.articles[i].source.name;
+                //Need to format date
                 var artDate = response.articles[i].publishedAt;
 
                
@@ -76,9 +77,9 @@ function getData() {
                 
                 // define byBlock
 
-                var textAuthor = authDiv.append("Author: "+artAuthor);
-                var textSource = sourceDiv.append("Source: "+artSource);
-                var textDate = dateDiv.append("Date: "+artDate);
+                var textAuthor = authDiv.append("Author: " + artAuthor);
+                var textSource = sourceDiv.append("Source: " + artSource);
+                var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MMMM DD, YYYY"));
 
                 var myResults = divA.append(textSource).append(artTitle).append(textDate).append(textAuthor);
 
