@@ -24,14 +24,30 @@ function getData() {
           .then(function(response){
             console.log(response);
 
-
-
           })
+      
+        });   
+      }
+  //   Geo location API link
+        //   function for Geo Location link
+        function geoLocData() {
+           document.addEventListener("load", function() {
+                 
+                 
+              var geoQueryUrl = "http://ip-api.com/json";
 
+              $.ajax({
+                  url: geoQueryUrl,
+                  method: "GET"
+              })
+              .then(function(response){
 
+                  console.log("Ben: " + response);
+              })
+            })
+        
+          }
 
-
-    })
-};
-    getData();
-   
+          getData();
+         
+          geoLocData();
