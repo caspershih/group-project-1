@@ -15,19 +15,41 @@
     <div class="flex-container">
     <div class="container">
         <div class="logoDiv"><img src="assets/images/figgit_logo-01.png" alt="logo" class="responsive"></div>
+
             <form id="searchForm">
-            <label form="headline-input">Enter headline here:</label><br>
-            <input type="text" id="headlineInput" placeholder="Headline Required"><br>
-            <label form="headline-input">Date of article:</label><br>
-            <input type="date" id="headlineDate" placeholder="Date Required"><br>
-            <input id="headlineBtn" type="submit" value="Search">
+            <div class="formRow">   
+                <div class="formColumn" style="flex-grow: 9">
+                    <label form="headline-input">Enter Headline</label><br>
+                    <input type="text" id="headlineInput" placeholder="Required">
+                </div>
+                <div class="formColumn" style="flex-grow: 1">
+                    <label form="headline-input">Date of Article</label><br>
+                    <input type="date" id="headlineDate">
+                </div>
+                <div class="formColumn" style="flex-grow: 0">
+                    <label form="headline-input"></label><br>
+                    <input id="headlineBtn" type="submit" value="Search">
+                </div>
+            </div> 
             </form>
-        <div id="resultsView"></div>  
+
+    </div>
     </div>
     </div>
     
+    <div class=resultsHeader><h3>Search Results</h3></div>
+    <div class="resultsContainer">
+    <div id="resultsSection">
+        <div id="resultsView"></div>
+    </div>
+    </div>  
+
+   
+    
+    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="assets/javascript/script.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </body>
 
 </html>
