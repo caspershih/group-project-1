@@ -35,8 +35,7 @@ function getData() {
             console.log("length: "+response.articles.length);
 
             for (i = 0; i < response.articles.length; i++) {
-                var artTitle = $('<a>').text('Headline: ' + '"' + response.articles[i].title + '"');
-                //Can we add a target='_blank' attr here? So link opens in new window.
+                var artTitle = $('<a target="_blank">').text('Headline: ' + '"' + response.articles[i].title + '"');
                 artTitle.attr("href", response.articles[i].url);
                 // var artUrl = response.articles[i].url;
                 var artAuthor = response.articles[i].author;
@@ -64,7 +63,7 @@ function getData() {
 
                 var textAuthor = authDiv.append("Author: " + artAuthor);
                 var textSource = sourceDiv.append("Source: " + artSource);
-                var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MM/DD/YYYY"));
+                var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MMMM DD, YYYY"));
 
                 var myResults = titleDiv.append(textSource).append(artTitle).append(textDate).append(textAuthor);
 
