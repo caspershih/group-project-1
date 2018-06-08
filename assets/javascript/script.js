@@ -15,10 +15,16 @@ $(document).ready(function() {
         var country = response.countryCode;
         console.log(country);
     })
+
+    // Function to empty out the results
+    function clear() {
+    $("#resultsView").empty();
+    }
+
 function getData() {
     $("#headlineBtn").on("click", function() { // START ON CLICK
-
         event.preventDefault();
+        clear();
         $("#headlineInput").empty();
         $("#headlineDate").empty();
     //To show results container on click    
@@ -27,9 +33,9 @@ function getData() {
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
 
-        var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
+        var sources = " ";
         var from = $("#headlineDate").val().trim();
-        var sortBy = "popularity";
+        var sortBy = "relevance";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
         console.log(q);
         console.log(url);
