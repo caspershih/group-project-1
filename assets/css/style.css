@@ -138,6 +138,10 @@ label{
 line-height: 150%;
 }
 
+#resultsView img {
+    display: block;
+}
+
 .byDiv {
     display: inline-block;
     margin: 0px 10px 10px 0px;
