@@ -29,9 +29,8 @@ function getData() {
         event.preventDefault();
         $("#resultsView").empty();
 
-    //To show results container on click    
-        $(".resultsContainer").show();
-        $(".resultsHeader").show();
+ 
+       
 
        
         // var url = "https://newsapi.org/v2/top-headlines?";
@@ -59,8 +58,10 @@ function getData() {
             $(".modal").css("display", "block");
             return;
         }
-
-
+        
+       //To show results container on click    
+       $(".resultsContainer").show();
+        $(".resultsHeader").show();
         $.ajax({ // Start Ajax call
             url: queryURL,
             method: "GET"
@@ -160,6 +161,10 @@ function getData() {
      
 
     }) // End onClick
+
+    $(".close").on("click", function(){
+        $(".modal").css("display", "none");
+    });
 };
 
 
