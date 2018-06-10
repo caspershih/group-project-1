@@ -21,7 +21,7 @@ $(document).ready(function() {
         console.log(response)
         var country = response.country;
         countryCode = country;
-
+    //Adds current location info to location div on UI
     $("#location").text("Current location: " + country);
         
 
@@ -31,26 +31,37 @@ function getData() {
         event.preventDefault();
         $("#resultsView").empty();
 
-    //To show results container on click    
-        $(".resultsContainer").show();
-        $(".resultsHeader").show();
+ 
+       
 
        
+        // var url = "https://newsapi.org/v2/top-headlines?";
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
-
-        var category = "general"
         var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
         var from = $("#headlineDate").val().trim();
         var sortBy = "relevancy";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
+        var language;
+
+        if (countryCode === "United States"){
+            language = 'en'
+        }
         console.log(q);
         console.log(url);
         console.log(from);
 
         //var queryURL = url + "q="+q+"&category="+category+"&country="+countryCode+"&apiKey="+apiKey;
-        var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&apiKey="+apiKey;
+        var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&language="+language+"&apiKey="+apiKey;
 
+        if (q === "") {
+            $(".modal").css("display", "block");
+            return;
+        }
+        
+       //To show results container on click    
+       $(".resultsContainer").show();
+        $(".resultsHeader").show();
         $.ajax({ // Start Ajax call
             url: queryURL,
             method: "GET"
@@ -153,6 +164,10 @@ function getData() {
      
 
     }) // End onClick
+
+    $(".close").on("click", function(){
+        $(".modal").css("display", "none");
+    });
 };
 
 
