@@ -157,16 +157,12 @@ function getData() {
           $("#headlineInput").val("");
           $("#headlineDate").val("");
 
-     
-
     }) // End onClick
 
     $(".close").on("click", function(){
         $(".modal").css("display", "none");
     });
 };
-
-
 
 getData();
 
