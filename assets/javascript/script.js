@@ -31,11 +31,7 @@ function getData() {
         event.preventDefault();
         $("#resultsView").empty();
 
- 
-       
-
-       
-        // var url = "https://newsapi.org/v2/top-headlines?";
+// var url = "https://newsapi.org/v2/top-headlines?";
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
         var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";

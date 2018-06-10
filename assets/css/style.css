@@ -251,26 +251,28 @@ h2 {
 
 /* Modal Content/Box */
 .modalContent {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    height: 40%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    margin: 60px auto;    
     text-align: center;
-    font-weight: bold;
-    
 }
 
 .modalContent p {
     font-size: 40px;
-    vertical-align: center;
+    font-weight: bold;
 }
 
 /* The Close Button */
 .close {
+    position: absolute;
+    top: 0;
+    right: 15px;
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
 }
