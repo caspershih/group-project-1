@@ -19,8 +19,10 @@ $(document).ready(function() {
 
     .then(function(response) {
         console.log(response)
-        var country = response.countryCode;
+        var country = response.country;
         countryCode = country;
+
+    $("#location").text("Current location: " + country);
         
 
     })
@@ -34,8 +36,7 @@ function getData() {
         $(".resultsHeader").show();
 
        
-        var url = "https://newsapi.org/v2/top-headlines?";
-        // var url = "https://newsapi.org/v2/everything?";
+        var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
 
         var category = "general"
@@ -47,8 +48,8 @@ function getData() {
         console.log(url);
         console.log(from);
 
-        var queryURL = url + "q="+q+"&category="+category+"&country="+countryCode+"&apiKey="+apiKey;
-        // var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&apiKey="+apiKey;
+        //var queryURL = url + "q="+q+"&category="+category+"&country="+countryCode+"&apiKey="+apiKey;
+        var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&apiKey="+apiKey;
 
         $.ajax({ // Start Ajax call
             url: queryURL,
@@ -76,6 +77,7 @@ function getData() {
             // imageL.attr("src", "./assets/images/cr.png");
             var imageR = "./assets/images/r.png";
             // imageL.attr("src", "./assets/images/r.png");
+            var imageNone = "./assets/images/norating.png";
 
 
             console.log(imageL);
@@ -117,24 +119,26 @@ function getData() {
                         if (C.indexOf(artSource) === -1) {
                             if (CR.indexOf(artSource) === -1) {
                                 if (R.indexOf(artSource) === -1){
-                                    biasImage = "No Rating";
-                                }else {biasImage = $("<img>").attr("src",imageR)
+                                    biasImage = $("<img class='biasRating'>").attr("src", imageNone);
+                                    
+                                }else {biasImage = $("<img class='biasRating'>").attr("src",imageR)
                                 };
-                            } else {biasImage = $("<img>").attr("src",imageCR).val("Ratings: ")
+                            } else {biasImage = $("<img class='biasRating'>").attr("src",imageCR).val("Ratings: ")
                             };
-                        } else {biasImage = $("<img>").attr("src",imageC).val("Ratings: ")
+                        } else {biasImage = $("<img class='biasRating'>").attr("src",imageC).val("Ratings: ")
                         };
                      } else {
-                         biasImage = $("<img>").attr("src",imageCL).val("Ratings: ")
+                         biasImage = $("<img class='biasRating'>").attr("src",imageCL).val("Ratings: ")
                      };
                  } else {
-                     biasImage = $("<img>").attr("src",imageL)
+                     biasImage = $("<img class='biasRating'>").attr("src",imageL)
                  };
                  console.log("bias: "+biasImage);
                  console.log("array: "+L)
                 // var biasRating = $("<a>").text("Rating: ").append(biasImage);
 
-                divA.append(textSource).append(artTitle).append(textDate).append(textAuthor).append(biasImage);
+                divA.append(biasImage).append(textSource).append(artTitle).append(textDate).append(textAuthor);
+                
 
                 $("#resultsView").append(divA); // display results to html
 
