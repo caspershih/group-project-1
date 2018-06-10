@@ -19,10 +19,10 @@ $(document).ready(function() {
 
     .then(function(response) {
         console.log(response)
-        var country = response.country;
+        var country = response.countryCode;
         countryCode = country;
     //Adds current location info to location div on UI
-    $("#location").text("Current location: " + country);
+    $("#location").text("Current location: " + response.city);
         
 
     })
@@ -40,7 +40,7 @@ function getData() {
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
         var language;
 
-        if (countryCode === "United States"){
+        if (countryCode === "US"){
             language = 'en'
         }
         console.log(q);
