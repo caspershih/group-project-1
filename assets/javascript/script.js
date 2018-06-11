@@ -45,7 +45,7 @@ function getData() {
         var language;
 
         if (countryCode === "US"){
-            language = 'fr'
+            language = 'en'
         }
         console.log(q);
         console.log(url);
@@ -58,7 +58,7 @@ function getData() {
             $(".modal").css("display", "block");
             return;
         }
-        
+
        //To show results container on click    
        $(".resultsContainer").show();
         $(".resultsHeader").show();
