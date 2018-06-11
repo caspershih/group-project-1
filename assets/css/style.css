@@ -178,12 +178,24 @@ label{
     margin-bottom: 30px;
 }
 
-#resultsView{
+#resultsView {
 line-height: 150%;
+padding-top: 35px;
 }
 
 #resultsView img {
     display: block;
+}
+
+#searchResult {
+    line-height: 175%;
+    float: left;
+    text-transform: capitalize;
+}
+
+#dateResult {
+    line-height: 175%;
+    float: right;
 }
 
 .byDiv {
@@ -310,6 +322,16 @@ h2 {
     }
 
     #headlineBtn {
+        line-height: 100%;
         margin-top: -5px;
+    }
+
+    #dateResult {
+        line-height: 100%;
+        float: left;
+    }
+
+    #resultsView {
+        padding-top: 55px;
     }
 }

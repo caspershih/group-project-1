@@ -113,6 +113,12 @@ function getData() {
 
                 var sourceDiv = $("<div>");
                 sourceDiv.addClass("mySource");
+
+                var qDiv = $("#searchResult");
+                qDiv.html("Your Keyword Search: " + q);
+
+                var qDiv = $("#dateResult");
+                qDiv.html("Selected Date: " + moment(from).format("MMMM DD, YYYY"));
                 
                 // define byBlock
                 var textAuthor = authDiv.append("Author: " + artAuthor);
