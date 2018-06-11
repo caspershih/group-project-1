@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     var countryCode;
 
-    var queryGEO = "https://ip-api.com/json";
+    var queryGEO = "http://ip-api.com/json";
 
     $.ajax({
         url: queryGEO,
