@@ -34,7 +34,7 @@ function getData() {
 // var url = "https://newsapi.org/v2/top-headlines?";
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
-        var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
+        var sources = "la-times, yahoo, reuters, npr.org, BBC, abc-news, msnbc, mother-jones, occupy-democrats, fox-news, the-federalist, american-spectator, breitbart-news, the blaze, drudge-report, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post, al-jazeera";
         var from = $("#headlineDate").val().trim();
         var sortBy = "relevancy";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
@@ -68,11 +68,11 @@ function getData() {
             console.log("results: "+response.totalResults);
 
           
-            var L = ["test"];
-            var CL = ["CNN", "The New York Times", "The Washington Post", "CBS News", "ABC News", "Buzzfeed"];
-            var C = ["USA Today", "The Wall Street Journal", "Npr.org", "The Hill", "CNBC"];
-            var CR = [];
-            var R = [];
+            var L = ["Occupy Democrats", "Huffington Post", "Mother Jones", "MSNBC", "Buzzfeed"];
+            var CL = ["Yahoo", "CNN", "The New York Times", "The Washington Post", "CBS News", "ABC News"];
+            var C = ["Al Jazeera", "LA Times", "Bloomberg", "Reuters", "BBC", "Associated Press", "USA Today", "The Wall Street Journal", "Npr.org", "The Hill", "CNBC"];
+            var CR = ["Fox News", "Google News", "The Blaze"];
+            var R = ["The Federalist", "Breitbart News", "American Spectator", "The Drudge Report"];
 
             var imageL = "./assets/images/l.png";
             // imageL.attr("src", "./assets/images/l.png");
