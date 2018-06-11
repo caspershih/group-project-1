@@ -196,6 +196,7 @@ padding-top: 35px;
 #dateResult {
     line-height: 175%;
     float: right;
+    margin-right: 10px;
 }
 
 .byDiv {
