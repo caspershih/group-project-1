@@ -21,6 +21,8 @@ $(document).ready(function() {
         console.log(response)
         var country = response.countryCode;
         countryCode = country;
+    //Adds current location info to location div on UI
+    $("#location").text("Current location: " + response.city);
         
 
     })
@@ -29,16 +31,10 @@ function getData() {
         event.preventDefault();
         $("#resultsView").empty();
 
- 
-       
-
-       
-        // var url = "https://newsapi.org/v2/top-headlines?";
+// var url = "https://newsapi.org/v2/top-headlines?";
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
-
-        var category = "general"
-        var sources = "npr, abc-news, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post";
+        var sources = "la-times, yahoo, reuters, npr.org, BBC, abc-news, msnbc, mother-jones, occupy-democrats, fox-news, the-federalist, american-spectator, breitbart-news, the blaze, drudge-report, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post, al-jazeera";
         var from = $("#headlineDate").val().trim();
         var sortBy = "relevancy";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
@@ -51,7 +47,7 @@ function getData() {
         console.log(url);
         console.log(from);
 
-        // var queryURL = url + "q="+q+"&category="+category+"&country="+countryCode+"&apiKey="+apiKey;
+        //var queryURL = url + "q="+q+"&category="+category+"&country="+countryCode+"&apiKey="+apiKey;
         var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&language="+language+"&apiKey="+apiKey;
 
         if (q === "") {
@@ -72,11 +68,11 @@ function getData() {
             console.log("results: "+response.totalResults);
 
           
-            var L = ["test"];
-            var CL = ["CNN", "The New York Times", "The Washington Post", "CBS News", "ABC News", "Buzzfeed"];
-            var C = ["USA Today", "The Wall Street Journal", "Npr.org", "The Hill", "CNBC"];
-            var CR = [];
-            var R = [];
+            var L = ["Occupy Democrats", "Huffington Post", "Mother Jones", "MSNBC", "Buzzfeed"];
+            var CL = ["Yahoo", "CNN", "The New York Times", "The Washington Post", "CBS News", "ABC News"];
+            var C = ["Al Jazeera", "LA Times", "Bloomberg", "Reuters", "BBC", "Associated Press", "USA Today", "The Wall Street Journal", "Npr.org", "The Hill", "CNBC"];
+            var CR = ["Fox News", "Google News", "The Blaze"];
+            var R = ["The Federalist", "Breitbart News", "American Spectator", "The Drudge Report"];
 
             var imageL = "./assets/images/l.png";
             // imageL.attr("src", "./assets/images/l.png");
@@ -88,6 +84,7 @@ function getData() {
             // imageL.attr("src", "./assets/images/cr.png");
             var imageR = "./assets/images/r.png";
             // imageL.attr("src", "./assets/images/r.png");
+            var imageNone = "./assets/images/norating.png";
 
 
             console.log(imageL);
@@ -116,6 +113,12 @@ function getData() {
 
                 var sourceDiv = $("<div>");
                 sourceDiv.addClass("mySource");
+
+                var qDiv = $("#searchResult");
+                qDiv.html("Your Keyword Search: " + q);
+
+                var qDiv = $("#dateResult");
+                qDiv.html("Selected Date: " + moment(from).format("MMMM DD, YYYY"));
                 
                 // define byBlock
                 var textAuthor = authDiv.append("Author: " + artAuthor);
@@ -129,24 +132,26 @@ function getData() {
                         if (C.indexOf(artSource) === -1) {
                             if (CR.indexOf(artSource) === -1) {
                                 if (R.indexOf(artSource) === -1){
-                                    biasImage = "No Rating";
-                                }else {biasImage = $("<img>").attr("src",imageR)
+                                    biasImage = $("<img class='biasRating'>").attr("src", imageNone);
+                                    
+                                }else {biasImage = $("<img class='biasRating'>").attr("src",imageR)
                                 };
-                            } else {biasImage = $("<img>").attr("src",imageCR).val("Ratings: ")
+                            } else {biasImage = $("<img class='biasRating'>").attr("src",imageCR).val("Ratings: ")
                             };
-                        } else {biasImage = $("<img>").attr("src",imageC).val("Ratings: ")
+                        } else {biasImage = $("<img class='biasRating'>").attr("src",imageC).val("Ratings: ")
                         };
                      } else {
-                         biasImage = $("<img>").attr("src",imageCL).val("Ratings: ")
+                         biasImage = $("<img class='biasRating'>").attr("src",imageCL).val("Ratings: ")
                      };
                  } else {
-                     biasImage = $("<img>").attr("src",imageL)
+                     biasImage = $("<img class='biasRating'>").attr("src",imageL)
                  };
                  console.log("bias: "+biasImage);
                  console.log("array: "+L)
                 // var biasRating = $("<a>").text("Rating: ").append(biasImage);
 
-                divA.append(textSource).append(artTitle).append(textDate).append(textAuthor).append(biasImage);
+                divA.append(biasImage).append(textSource).append(artTitle).append(textDate).append(textAuthor);
+                
 
                 $("#resultsView").append(divA); // display results to html
 
@@ -158,16 +163,12 @@ function getData() {
           $("#headlineInput").val("");
           $("#headlineDate").val("");
 
-     
-
     }) // End onClick
 
     $(".close").on("click", function(){
         $(".modal").css("display", "none");
     });
 };
-
-
 
 getData();
 

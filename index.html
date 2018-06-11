@@ -15,9 +15,9 @@
     <div id="myModal" class="modal">
 
                 <!-- Modal content -->
-            <div class="modalContent">
-                <span class="close">&times;</span>
-                <p>Search criteria cannot be empty.</p>
+            <div class="modalContent"> 
+                <p>Search criteria cannot be empty</p>
+                <p class="close">&times;</p>
             </div>
               
               </div>
@@ -28,7 +28,7 @@
             <form id="searchForm">
             <div class="formRow">   
                 <div class="formColumn" style="flex-grow: 9">
-                    <label form="headline-input">Enter Headline</label><br>
+                    <label form="headline-input">Enter Keyword</label><br>
                     <input type="text" id="headlineInput" placeholder="Required">
                 </div>
                 <div class="formColumn" style="flex-grow: 1">
@@ -40,14 +40,29 @@
                     <input id="headlineBtn" type="submit" value="Search">
                 </div>
             </div> 
-            </form>
 
+            <div class="formRow2">
+                <div id="language">
+                    <label>Source Language:</label>
+                    <select id="languageSelect" name="Language">
+                        <option value="en" selected>English</option>
+                        <option value="sp">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="it">Italian</option>
+                    </select>
+                </div>    
+                <div id="location">Current location:</div>
+            </div>
+            </form>
+            
     </div>
     </div>
     
     <div class=resultsHeader><h3>Search Results</h3></div>
     <div class="resultsContainer">
     <div id="resultsSection">
+        <div id="searchResult"></div>
+        <div id="dateResult"></div>
         <div id="resultsView"></div>
     </div>
     </div>  
