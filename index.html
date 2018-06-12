@@ -20,7 +20,7 @@
 
                 <!-- Modal content -->
             <div class="modalContent"> 
-                <p>Search criteria cannot be empty</p>
+                <p>Please Enter a Keyword or Search Phrase</p>
                 <p class="close">&times;</p>
             </div>
               
@@ -39,7 +39,7 @@
       
                  <div class="formColumn" style="flex-grow: 1">
                     <label form="headline-input">Date of Article</label><br>
-                    <input type="date" id="headlineDate" data-provide="datepicker-inline">
+                    <input class="headlineDate" id="date" type="date" placeholder="mm/dd/yyyy">
                 </div>
                 
                 <div class="formColumn" style="flex-grow: 0">
@@ -65,13 +65,15 @@
     </div>
     </div>
     
-    <div class=resultsHeader><h3>Search Results</h3></div>
-    <div class="resultsContainer">
-    <div id="resultsSection">
-        <div id="searchResult"></div>
-        <div id="dateResult"></div>
-        <div id="resultsView"></div>
-    </div>
+    <div id="resultsRow">
+        <div class=resultsHeader><h3>Search Results</h3></div>
+        <div class="resultsContainer">
+        <div id="resultsSection">
+            <div id="searchResult"></div>
+            <div id="dateResult"></div>
+            <div id="resultsView"></div>
+        </div>
+        </div>
     </div>  
 
    

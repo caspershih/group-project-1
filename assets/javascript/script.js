@@ -1,20 +1,8 @@
-//on.document function
-$(document).ready(function() {
-    //To hide results container on page load
-
-    $(".resultsContainer").hide();
-    $(".resultsHeader").hide();
-    
-
-});
-
 var center = []
-
 var countryCode;
 var myLanguage;
 
 // Get current location using browser
-
 var long;
 var lat;
 function getLocation() {
@@ -42,6 +30,7 @@ $.ajax({
     url: geoQuery,
     method: "GET"
 })
+
 .then(function(response){
     console.log(response.results[0])
     countryCode = response.results[0].address_components[5].short_name;
@@ -52,10 +41,10 @@ $.ajax({
  
 }
 
-function language(){
-    var myLanguage = $("#languageSelect").val();
-}
-language();
+//on.document function
+$(document).ready(function() {
+    //To hide results container on page load
+    $("#resultsRow").hide();
 
 
 function getData() {
@@ -71,13 +60,11 @@ function getData() {
         };
         language();
 
-
-
-// var url = "https://newsapi.org/v2/top-headlines?";
+// API for News Article search response
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
         var sources = "la-times, yahoo, reuters, npr.org, BBC, abc-news, msnbc, mother-jones, occupy-democrats, fox-news, the-federalist, american-spectator, breitbart-news, the blaze, drudge-report, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post, al-jazeera";
-        var from = $("#headlineDate").val().trim();
+        var from = $(".headlineDate").val().trim();
         var sortBy = "relevancy";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
         var language;
@@ -92,17 +79,18 @@ function getData() {
         console.log(url);
         console.log(from);
 
-        //var queryURL = url + "q="+q+"&category="+category+"&country="+countryCode+"&apiKey="+apiKey;
+//Sets parameters for data reponse
         var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&language="+language+"&apiKey="+apiKey;
         console.log(queryURL);
         if (q === "") {
+            $("#resultsRow").hide();
             $(".modal").css("display", "block");
             return;
         }
 
        //To show results container on click    
-       $(".resultsContainer").show();
-        $(".resultsHeader").show();
+       $("#resultsRow").show();    
+       
         $.ajax({ // Start Ajax call
             url: queryURL,
             method: "GET"
@@ -131,11 +119,12 @@ function getData() {
             console.log(imageL);
 
             if (response.totalResults === 0) { // Return No Results
-                $("#resultsView").append($("<a>").text("No Results"));
+                $("#resultsView").append($("<a>").text("No results. Please try your search again."));
                  $("#searchResult").html("Your Keyword Search: "+ q);
+                 $("#dateResult").html("Selected Date: " + moment(from).format("MMMM DD, YYYY"));
             }
 
-            //Create variables for response data
+            //Create for loop and variables for response data
             for (i = 0; i < response.articles.length; i++) {
                 var artTitle = $("<h2>").text("Headline: " + response.articles[i].title);
                 var artUrl = response.articles[i].url;
@@ -143,7 +132,7 @@ function getData() {
                 var artSource = response.articles[i].source.name;
                 var artDate = response.articles[i].publishedAt;
 
-                //Create class attributes for response data
+            //Create class attributes for response data
                 var divA = $("<a>");
                 divA.attr("href", response.articles[i].url);
                 divA.attr("target", "_blank");
@@ -158,19 +147,16 @@ function getData() {
                 var sourceDiv = $("<div>");
                 sourceDiv.addClass("mySource");
 
-                // var qDiv = $("#searchResult");
-                // qDiv.html("Your Keyword Search: " + q);
-
-                //Add section at top of results view that defines the date selected in the search
+            //Add section at top of results view that defines the date selected in the search
                 var qDiv = $("#dateResult");
                 qDiv.html("Selected Date: " + moment(from).format("MMMM DD, YYYY"));
                 
-                // define byBlock
+            // define byBlock
                 var textAuthor = authDiv.append("Author: " + artAuthor);
                 var textSource = sourceDiv.append("Source: " + artSource);
                 var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MMMM DD, YYYY"));
 
-                //Add Biad Rating for each source returned based on name
+            //Add Biad Rating for each source returned based on name
                 var biasImage;
                  if (L.indexOf(artSource) === -1) {
                      if (CL.indexOf(artSource) === -1){
@@ -194,15 +180,12 @@ function getData() {
                  console.log("bias: "+biasImage);
                  console.log("array: "+L)
                 
-                //Add source data to UI based on search value
+            //Add source data to UI based on search value
                 divA.append(biasImage).append(textSource).append(artTitle).append(textDate).append(textAuthor);
                 
 
                 $("#resultsView").append(divA); // display results to html
                 $("#searchResult").html("Your Keyword Search: "+ q);
-
-                // var qDiv = $("#searchResult");
-                // qDiv.html("Your Keyword Search: " + q);
 
             }
 
@@ -210,7 +193,7 @@ function getData() {
           }) // End response
 
           $("#headlineInput").val("");
-          $("#headlineDate").val("");
+          $(".headlineDate").val("");
 
     }) // End onClick
 
@@ -222,4 +205,4 @@ function getData() {
 getData();
 
 //end brackets for on.document function
-
+});
