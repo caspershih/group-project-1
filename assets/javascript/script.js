@@ -4,11 +4,18 @@ $(document).ready(function() {
 
     $(".resultsContainer").hide();
     $(".resultsHeader").hide();
+    
+
+
 
 });
+
+
+
     var center = []
 
     var countryCode;
+    var myLanguage;
 
     var queryGEO = "http://ip-api.com/json";
 
@@ -20,17 +27,33 @@ $(document).ready(function() {
     .then(function(response) {
         console.log(response)
         var country = response.countryCode;
-        countryCode = country;
-        
+        countryCode = "US"; //defaul location
     //Adds current location info to location div on UI
-    $("#location").text("Current location: " + response.city);
+    $("#location").text("Current location: " + "Irvine"); //response.city);
         
 
     })
+
+function language(){
+    var myLanguage = $("#languageSelect").val();
+}
+language();
+
+
 function getData() {
     $("#headlineBtn").on("click", function() { // START ON CLICK
         event.preventDefault();
         $("#resultsView").empty();
+        $("#searchResult").empty();
+        $("#dateResult").empty();
+        
+        function language(){
+            myLanguage = $("#languageSelect").val();
+            console.log(myLanguage);
+        };
+        language();
+
+
 
 // var url = "https://newsapi.org/v2/top-headlines?";
         var url = "https://newsapi.org/v2/everything?";
@@ -42,20 +65,23 @@ function getData() {
         var language;
 
         if (countryCode === "US"){
-            language = 'en'
-        }
+            language = 'fr';
+        } 
+        // else {
+        //     language = myLanguage;
+        // }
         console.log(q);
         console.log(url);
         console.log(from);
 
         //var queryURL = url + "q="+q+"&category="+category+"&country="+countryCode+"&apiKey="+apiKey;
         var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&language="+language+"&apiKey="+apiKey;
-
+        console.log(queryURL);
         if (q === "") {
             $(".modal").css("display", "block");
             return;
         }
-        
+
        //To show results container on click    
        $(".resultsContainer").show();
         $(".resultsHeader").show();
@@ -88,6 +114,7 @@ function getData() {
 
             if (response.totalResults === 0) { // Return No Results
                 $("#resultsView").append($("<a>").text("No Results"));
+                 $("#searchResult").html("Your Keyword Search: "+ q);
             }
 
             //Create variables for response data
@@ -113,9 +140,8 @@ function getData() {
                 var sourceDiv = $("<div>");
                 sourceDiv.addClass("mySource");
 
-                //Add section at top of results view that defines the  keyword/phrase in the search 
-                var qDiv = $("#searchResult");
-                qDiv.html("Your Keyword Search: " + q);
+                // var qDiv = $("#searchResult");
+                // qDiv.html("Your Keyword Search: " + q);
 
                 //Add section at top of results view that defines the date selected in the search
                 var qDiv = $("#dateResult");
@@ -155,6 +181,10 @@ function getData() {
                 
 
                 $("#resultsView").append(divA); // display results to html
+                $("#searchResult").html("Your Keyword Search: "+ q);
+
+                // var qDiv = $("#searchResult");
+                // qDiv.html("Your Keyword Search: " + q);
 
             }
 
