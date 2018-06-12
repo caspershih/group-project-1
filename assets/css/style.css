@@ -52,7 +52,8 @@ body {
 
 select {
     color: red;
-    width: 55px;
+    width: auto;
+    padding-right: 11px;
     height: 26px;
     border: 0;
     margin-left: 4px;
