@@ -21,23 +21,19 @@ Once the initial search and response process was working, we began adding more f
 The final launch required more code development to refine the search results to return specific relevant data to the search query. Final bug fixes and code correction were done on GitHub. We utilized GitHub Projects and Slack to communicate during the project.
 
 ## Technologies Used
-```
 * HTML - Provides the framework for the page. Displays all the graphics, text, input fields and a results section to post the search results data.
 * CSS - Adds styling to the page, not only for aesthetics, but also to provide the user an intuitive interface.
 * JavaScript - Adds functionality and controls the events that dynamically push and pull data to and from the page. 
 * jQuery - Abbreviates the JavaScript code, making it easier to read and write.
-* API Servers - Two API servers are used to collect data. www.APInews.org for media source data  and www.ipAPI.com for user location data. Results from these servers are pushed to the page as search results and user location information. The user location is also used to filter the search results by region.
+* API Servers - Two API servers are used to collect data. www.APInews.org for media source data  and www.googleapis.com for user location data. Results from these servers are pushed to the page as search results and user location information. The user location is also used to filter the search results by region.
 * AJAX - AJAX makes a call to the API servers so Figgit can be updated asynchronously by exchanging data with the News API and IP API behind the scenes.
 * JSON - JSON formats the data that is returned by the AJAX call to an object array which we can easily be converted into Javascript objects.
 * GitHub - Github is the site we used to collaborate and post changes while working on different areas of the scripts. Github pages is hosting the site.
-```
 
 ## Plans for Future Development
 Our plans for future development include:
-```
 * Refining data response to limit search results so that only articles relevant to the user search input will appear.
 * Creating a database that will allow the user to rate articles and news sources and dynamically update Media Bias ratings accordingly.
 * Filter news articles by region and offer translation options in various languages.
 * Filter search results by the author of the article.
 * Add an option for user to request more results if desired.
-```
