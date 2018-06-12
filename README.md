@@ -40,11 +40,11 @@ JSON - JSON formats the data that is returned by the AJAX call to an object arra
 
 GitHub - Github is the site we used to collaborate and post changes while working on different areas of the scripts. Github pages is hosting the site.
 
-##Plans for Future Development
+## Plans for Future Development
 
 Our plans for future development include:
--[] Refining data response to limit search results so that only articles relevant to the user search input will appear.
--[] Creating a database that will allow the user to rate articles and news sources and dynamically update Media Bias ratings accordingly.
--[] Filter news articles by region and offer translation options in various languages.
--[] Filter search results by the author of the article.
--[] And add an option for user to request more results if desired.
+• Refining data response to limit search results so that only articles relevant to the user search input will appear.
+• Creating a database that will allow the user to rate articles and news sources and dynamically update Media Bias ratings accordingly.
+• Filter news articles by region and offer translation options in various languages.
+• Filter search results by the author of the article.
+• And add an option for user to request more results if desired.
