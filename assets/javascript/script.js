@@ -94,23 +94,19 @@ function getData() {
             console.log("length: "+response.articles.length);
             console.log("results: "+response.totalResults);
 
-          
+          //Assign bias rating to known media sources
             var L = ["Occupy Democrats", "Huffington Post", "Mother Jones", "MSNBC", "Buzzfeed"];
             var CL = ["Yahoo", "CNN", "The New York Times", "The Washington Post", "CBS News", "ABC News"];
             var C = ["Al Jazeera", "LA Times", "Bloomberg", "Reuters", "BBC", "Associated Press", "USA Today", "The Wall Street Journal", "Npr.org", "The Hill", "CNBC"];
             var CR = ["Fox News", "Google News", "The Blaze"];
             var R = ["The Federalist", "Breitbart News", "American Spectator", "The Drudge Report"];
 
+            //Assign image for each Bias Rating
             var imageL = "./assets/images/l.png";
-            // imageL.attr("src", "./assets/images/l.png");
             var imageCL = "./assets/images/cl.png";
-            // imageL.attr("src", "./assets/images/cl.png");
             var imageC = "./assets/images/c.png";
-            // imageL.attr("src", "./assets/images/c.png");
             var imageCR = "./assets/images/cr.png";
-            // imageL.attr("src", "./assets/images/cr.png");
             var imageR = "./assets/images/r.png";
-            // imageL.attr("src", "./assets/images/r.png");
             var imageNone = "./assets/images/norating.png";
 
 
@@ -121,6 +117,7 @@ function getData() {
                  $("#searchResult").html("Your Keyword Search: "+ q);
             }
 
+            //Create variables for response data
             for (i = 0; i < response.articles.length; i++) {
                 var artTitle = $("<h2>").text("Headline: " + response.articles[i].title);
                 var artUrl = response.articles[i].url;
@@ -128,6 +125,7 @@ function getData() {
                 var artSource = response.articles[i].source.name;
                 var artDate = response.articles[i].publishedAt;
 
+                //Create class attributes for response data
                 var divA = $("<a>");
                 divA.attr("href", response.articles[i].url);
                 divA.attr("target", "_blank");
@@ -145,6 +143,7 @@ function getData() {
                 // var qDiv = $("#searchResult");
                 // qDiv.html("Your Keyword Search: " + q);
 
+                //Add section at top of results view that defines the date selected in the search
                 var qDiv = $("#dateResult");
                 qDiv.html("Selected Date: " + moment(from).format("MMMM DD, YYYY"));
                 
@@ -153,7 +152,7 @@ function getData() {
                 var textSource = sourceDiv.append("Source: " + artSource);
                 var textDate = dateDiv.append("Date Published: " + moment(artDate).format("MMMM DD, YYYY"));
 
-
+                //Add Biad Rating for each source returned based on name
                 var biasImage;
                  if (L.indexOf(artSource) === -1) {
                      if (CL.indexOf(artSource) === -1){
@@ -176,8 +175,8 @@ function getData() {
                  };
                  console.log("bias: "+biasImage);
                  console.log("array: "+L)
-                // var biasRating = $("<a>").text("Rating: ").append(biasImage);
-
+                
+                //Add source data to UI based on search value
                 divA.append(biasImage).append(textSource).append(artTitle).append(textDate).append(textAuthor);
                 
 
