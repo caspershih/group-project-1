@@ -1,15 +1,11 @@
 //on.document function
 $(document).ready(function() {
     //To hide results container on page load
-
-    $(".resultsContainer").hide();
-    $(".resultsHeader").hide();
-    
+    $("#resultsRow").hide();
 
 });
 
 var center = []
-
 var countryCode;
 var myLanguage;
 
@@ -77,7 +73,7 @@ function getData() {
         var url = "https://newsapi.org/v2/everything?";
         var q = $("#headlineInput").val().trim();
         var sources = "la-times, yahoo, reuters, npr.org, BBC, abc-news, msnbc, mother-jones, occupy-democrats, fox-news, the-federalist, american-spectator, breitbart-news, the blaze, drudge-report, associated-press, bloomberg, buzzfeed, cnn, google-news, the-washington-post, al-jazeera";
-        var from = $("#headlineDate").val().trim();
+        var from = $(".headlineDate").val().trim();
         var sortBy = "relevancy";
         var apiKey = "850d4c0cc9124a158a98cfda121f721d";
         var language;
@@ -96,13 +92,14 @@ function getData() {
         var queryURL = url + "q="+q+"&sources="+sources+"&from="+from+"&sortBy="+sortBy+"&language="+language+"&apiKey="+apiKey;
         console.log(queryURL);
         if (q === "") {
+            $("#resultsRow").hide();
             $(".modal").css("display", "block");
             return;
         }
 
        //To show results container on click    
-       $(".resultsContainer").show();
-        $(".resultsHeader").show();
+       $("#resultsRow").show();    
+       
         $.ajax({ // Start Ajax call
             url: queryURL,
             method: "GET"
@@ -131,8 +128,9 @@ function getData() {
             console.log(imageL);
 
             if (response.totalResults === 0) { // Return No Results
-                $("#resultsView").append($("<a>").text("No Results"));
+                $("#resultsView").append($("<a>").text("No results. Please try your search again."));
                  $("#searchResult").html("Your Keyword Search: "+ q);
+                 $("#dateResult").html("Selected Date: " + moment(from).format("MMMM DD, YYYY"));
             }
 
             //Create variables for response data
@@ -210,7 +208,7 @@ function getData() {
           }) // End response
 
           $("#headlineInput").val("");
-          $("#headlineDate").val("");
+          $(".headlineDate").val("");
 
     }) // End onClick
 
