@@ -59,8 +59,8 @@ language();
 
 
 function getData() {
-    $("#headlineBtn").on("click", function() { // START ON CLICK
-        event.preventDefault();
+    $("#headlineBtn").on("click", function(event) { // START ON CLICK
+        event.preventDefault(event);
         $("#resultsView").empty();
         $("#searchResult").empty();
         $("#dateResult").empty();
