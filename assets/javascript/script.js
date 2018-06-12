@@ -17,19 +17,21 @@ $(document).ready(function() {
     var countryCode;
     var myLanguage;
 
-    var queryGEO = "http://ip-api.com/json";
+    // var queryGEO = "http://ip-api.com/json";
 
-    $.ajax({
-        url: queryGEO,
-        method: "GET"
-    })
+    // $.ajax({
+    //     url: queryGEO,
+    //     method: "GET"
+    // })
 
-    .then(function(response) {
-        console.log(response)
-        var country = response.countryCode;
-        countryCode = "US"; //defaul location
-    //Adds current location info to location div on UI
-    $("#location").text("Current location: " + "Irvine"); //response.city);
+    // .then(function(response) {
+    //     console.log(response)
+    //     var country = response.countryCode;
+    //     countryCode = "US"; //defaul location
+    // //Adds current location info to location div on UI
+
+    countryCode = "US";
+    $("#location").text("Current location: Irvine"); //response.city);
         
 
     })
@@ -65,7 +67,7 @@ function getData() {
         var language;
 
         if (countryCode === "US"){
-            language = 'fr';
+            language = 'en';
         } 
         // else {
         //     language = myLanguage;
