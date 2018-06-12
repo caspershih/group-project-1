@@ -6,35 +6,51 @@ $(document).ready(function() {
     $(".resultsHeader").hide();
     
 
-
-
 });
 
+var center = []
 
+var countryCode;
+var myLanguage;
 
-    var center = []
+// Get current location using browser
 
-    var countryCode;
-    var myLanguage;
+var long;
+var lat;
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(myPosition);
 
-    // var queryGEO = "http://ip-api.com/json";
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
 
-    // $.ajax({
-    //     url: queryGEO,
-    //     method: "GET"
-    // })
+// Use current longitude & latitude to bring back city and country name
+function myPosition(position){
 
-    // .then(function(response) {
-    //     console.log(response)
-    //     var country = response.countryCode;
-    //     countryCode = "US"; //defaul location
-    // //Adds current location info to location div on UI
+    long = position.coords.longitude;
+    lat = position.coords.latitude;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?"
+    var latitude = lat;
+    var longitude = long;
+    var myKey = "AIzaSyCUvRgDCklyBZoQCZg6IAjDH13FJHwCTZc"
 
-    countryCode = "US";
-    $("#location").text("Current location: Irvine"); //response.city);
-        
+var geoQuery = geoURL + "latlng="+lat+","+long+"&key="+myKey;
 
-    })
+$.ajax({
+    url: geoQuery,
+    method: "GET"
+})
+.then(function(response){
+    console.log(response.results[0])
+    countryCode = response.results[0].address_components[5].short_name;
+    console.log(countryCode);
+    $("#location").text("Current location: "+response.results[0].address_components[2].short_name);
+
+});
+ 
+}
 
 function language(){
     var myLanguage = $("#languageSelect").val();
@@ -69,9 +85,9 @@ function getData() {
         if (countryCode === "US"){
             language = 'en';
         } 
-        // else {
-        //     language = myLanguage;
-        // }
+        if (myLanguage !== language){
+            language = myLanguage;
+        }
         console.log(q);
         console.log(url);
         console.log(from);
