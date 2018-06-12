@@ -1,8 +1,10 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
 {\fonttbl\f0\froman\fcharset0 Times-Roman;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red217\green11\blue5;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c88946\c14202\c0;}
-\margl1440\margr1440\vieww15040\viewh15900\viewkind0
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red217\green11\blue5;\red0\green0\blue233;
+\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c88946\c14202\c0;\cssrgb\c0\c0\c93333;
+\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww17820\viewh15920\viewkind0
 \deftab720
 \pard\pardeftab720\sl216\partightenfactor0
 
@@ -25,7 +27,7 @@ The quest beings with Figgit.\
 \b \
 Slide 3
 \b0 \
-We live in an age where information is in overabundance. Everyday we are bombarded with news stories on social media, television, radio and our mobile devices. While many of these stories sound true, it\'92s important to research anything we decide to pass on or repost to avoid spreading false or misleading information. So how do we research the news that we hear?  Where do we start and how do we know we can trust the results we come up with to be unbiased and true?\
+We live in an age where information is available in overabundance. Everyday we are bombarded with news stories on social media, television, radio and our mobile devices. While many of these stories sound true, it\'92s important to research anything we decide to pass on or repost to avoid spreading false or misleading information. So how do we research the news that we hear?  Where do we start and how do we know we can trust the results we come up with to be unbiased and true?\
 \
 \cf3 (click)\cf2 \
 \
@@ -83,12 +85,9 @@ The ratings are based on data researched from various sources like \cf3 (click)\
 
 \b \cf2 Slide 9
 \b0 \
-The purpose of the bias rating is not to tell the reader whether a story is accurate or fake news, but to provide the user with information that will give them perspective as to where the story originated while also providing additional stories on the same subject but from an \
-\pard\pardeftab720\sl216\partightenfactor0
-\cf3 (click)\cf2  alternate source. It encourages the reader to view information from a \
-\cf3 (click)\cf2  different perspective and, ultimately, be \
-\cf3 (click)\cf2  better informed.\
+The purpose of the bias rating is not to tell the reader whether a story is accurate or fake news, but to provide the user with information pertaining to where the story originated while also providing additional stories on the same subject from an\'a0\cf3 (click)\cf2  alternate source. It encourages the reader to view information from a\'a0\cf3 (click)\cf2  different perspective and, ultimately, be\'a0\cf3 (click)\cf2  better informed.\
 \
+\pard\pardeftab720\sl216\partightenfactor0
 \cf3 (click)\
 (click)\cf2 \
 \
@@ -96,24 +95,93 @@ The purpose of the bias rating is not to tell the reader whether a story is accu
 
 \b \cf2 Slide 10
 \b0 \
-The design process\'85\
+Our design process began with a discussion about the potential projects we could work on and what we hoped to achieve by completing the site. We decided on addressing the issue of fake news and media bias. We began searching various News Site API\'92s. We decided on NewsAPI.org because it offered the widest range of news sources available. We discussed the look and functionality of our site and concluded that a simple \'93Google\'94 like interface would work best. \
 \
+While coming up with a simple logo design and user interface layout, we developed the backend code to get data from the API servers and convert it to JavaScript objects. Once the UI development was complete, we then targeted the appropriate page elements to pull values from and push data to the page.\
+\
+Once the initial search and response process was working, we began adding more functionality to the site like location identification and language preference. We also added the Media Bias Rating scale based on research from numerous media rating sites.\
+\
+The final launch required more code development to refine the search results to return specific relevant data to the search query. Final bug fixes and code correction were done on GitHub. We utilized GitHub Projects and Slack to communicate during the project.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\cf2 \
+\pard\pardeftab720\sl288\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl288\partightenfactor0
 
-\b Slide 11
+\b \cf2 Slide 11
 \b0 \
-The technologies we used\'85\
-\
+Here\'92s a brief summary of the technologies we used in the development of Figgit and how they work.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\cf2 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 HTML - Provides the framework for the page. Displays all the graphics, text, input fields and a results section to post the search results data.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\cf2 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 CSS - Adds styling to the page, not only for aesthetics, but also to provide the user an intuitive interface.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \
+JavaScript - Adds functionality and controls the events that dynamically push and pull data to and from the page. \
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \
+jQuery - Abbreviates the JavaScript code, making it easier to read and write.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \
+Two API servers are used to collect data. {\field{\*\fldinst{HYPERLINK "http://www.apinews.org/"}}{\fldrslt \cf4 \ul \ulc4 www.APInews.org}} for media source data\'a0 and {\field{\*\fldinst{HYPERLINK "http://www.ipapi.com/"}}{\fldrslt \cf4 \ul \ulc4 www.ipAPI.com}} for user location data. Results from these servers are pushed to the page as search results and user location information. The user location is also used to filter the search results by region.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \
+AJAX \cb5 makes a call to the API servers so Figgit can be updated asynchronously by exchanging data with the News API and IP API behind the scenes.\cb1 \
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \
+JSON formats the data that is returned by the AJAX call to an object array which we can easily be converted into Javascript objects.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\pard\pardeftab720\sl380\partightenfactor0
+\cf2 \
+Github is the site we used to collaborate and post changes while working on different areas of the scripts. Github pages is hosting the site.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\cf2 \
+\pard\pardeftab720\sl288\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl288\partightenfactor0
 
-\b Slide 12
+\b \cf2 Slide 20
 \b0 \
-Demo\
-\
+Switch to Live Demo\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\
+\pard\pardeftab720\sl288\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl288\partightenfactor0
 
-\b Slide 13
+\b \cf2 Slide 21
 \b0 \
-Our plans for future development include\'85\
-\
-Slide 14\
+Our plans for future development include:\
+Refining data response to limit search results so that only articles relevant to the user search input will appear.\
+Creating a database that will allow the user to rate articles and news sources and dynamically update Media Bias ratings accordingly.\
+Filter news articles by region and offer translation options in various languages.\
+Filter search results by the author of the article.\
+And add an option for user to request more results if desired.\
+\pard\pardeftab720\sl216\partightenfactor0
+\cf3 (click)\cf2 \
+\pard\pardeftab720\sl288\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sl288\partightenfactor0
+
+\b \cf2 Slide 22
+\b0 \
 \pard\pardeftab720\sl380\partightenfactor0
 \cf2 If knowledge is power, then research is the quest,\
 and Figgit is where that quest should begin.  (pause) Let the quest begin.\
